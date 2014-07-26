@@ -28,7 +28,7 @@ Renderer.prototype.render = function (grid) {
 };
 
 /**
- * Renders the grid only.
+ * Renders a single cell.
  * @param Grid grid
  * @param {Object} cell
  */
