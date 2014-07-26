@@ -8,6 +8,9 @@
 function Grid(rows, columns) {
 	this.grid = [];
 
+	/**
+	 * @returns {Array}
+	 */
 	this.createGrid = function () {
 		var grid = [];
 
@@ -26,6 +29,10 @@ function Grid(rows, columns) {
 	this.cols = columns;
 	this.grid = this.createGrid();
 
+	/**
+	 * @param {Object} cell
+	 * @returns {Boolean}
+	 */
 	this.isWithinBounds = function (cell) {
 		if (
 			cell.x < 0
@@ -48,7 +55,7 @@ Grid.prototype.toArray = function () {
 };
 
 /**
- * @param {Array} cell
+ * @param {Object} cell
  * @returns {Boolean}
  */
 Grid.prototype.getCellState = function (cell) {
@@ -60,7 +67,7 @@ Grid.prototype.getCellState = function (cell) {
 };
 
 /**
- * @param {Array} cell
+ * @param {Object} cell
  * @param {Boolean} state
  */
 Grid.prototype.setCellState = function (cell, state) {
@@ -81,7 +88,7 @@ Grid.prototype.setSeed = function (seed) {
 };
 
 /**
- * @param {Array} cell
+ * @param {Object} cell
  * @returns {Array}
  */
 Grid.prototype.getAliveNeighbours = function (cell) {
@@ -108,7 +115,7 @@ Grid.prototype.getAliveNeighbours = function (cell) {
 };
 
 /**
- * @param {Array} cell
+ * @param {Object} cell
  * @returns {Boolean}
  */
 Grid.prototype.cellCanLive = function (cell) {
