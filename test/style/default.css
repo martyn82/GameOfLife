@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+body {
+	font: normal 12pt helvetica, arial, sans-serif;
+	line-height: 150%;
+}
+
+.testcasename {
+	display: block;
+	font-size: 24pt;
+	line-height: 200%;
+}
+
+.testresult {
+	font: normal 10pt monospace;
+	padding: .5em 1em;
+}
+
+.testresult:after {
+	display: inline-block;
+	float: right;
+	margin-top: -12pt;
+}
+
+.testname{
+	font-weight: bold;
+}
+
+.state-success {
+	background: #8f8;
+}
+
+.state-failure {
+	background: #f88;
+}
+
+.state-unknown,
+.state-incomplete,
+.state-skip {
+	background: #ff8;
+}
+
+.state-success:after {
+	content: 'SUCCESS';
+}
+
+.state-failure:after {
+	content: 'FAILURE';
+}
+
+.state-incomplete:after {
+	content: 'INCOMPLETE';
+}
+
+.state-skip:after {
+	content: 'SKIPPED';
+}
+
+.state-unknown:after {
+	content: 'UNKNOWN';
+}
