@@ -63,29 +63,20 @@ function include(classNames, callback) {
 }
 
 include(['Grid', 'Renderer', 'Game'], function () {
-	var seed = [
-		{x: 1, y: 3},
-		{x: 2, y: 3},
-		{x: 3, y: 3},
-		{x: 3, y: 2},
-		{x: 2, y: 1},
+	function random (min, max) {
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
 
-		{x: 1, y: 13},
-		{x: 2, y: 13},
-		{x: 3, y: 13},
-		{x: 3, y: 12},
-		{x: 2, y: 11},
-
-		{x: 1, y: 23},
-		{x: 2, y: 23},
-		{x: 3, y: 23},
-		{x: 3, y: 22},
-		{x: 2, y: 21}
-	];
-
-	var gridSize = {width: 100, height: 100};
+	var gridSize = {width: 50, height: 50};
 	var grid = new Grid(gridSize.height, gridSize.width);
-	grid.setSeed(seed);
+
+	for (var i = 0; i < gridSize.width; i++) {
+		for (var j = 0; j < gridSize.height; j++) {
+			if (random(0, 1) == 1) {
+				grid.setCellState({x: i, y:j}, true);
+			}
+		}
+	}
 
 	var renderer = new Renderer(document.getElementById('canvas'), gridSize);
 	var game = new Game(grid, renderer, window.requestAnimationFrame);
